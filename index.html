@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search Master</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 class="text-center display-2 fw-semibold mb-4 mt-3">My Friends</h1>
+    <div class="container-fluid">
+        <input class="w-100 px-3 py-2 fs-4" type="text" id="myInput" placeholder="Search Names..."
+            onkeyup="searchFunc()">
+    </div>
+    <table id="myTable" class="table table-hover fs-5 mt-2">
+        <thead>
+            <tr class="bg-secondary-subtle">
+                <th class="col-4 bg-transparent">First Name</th>
+                <th class="col-4 bg-transparent">Last Name</th>
+                <th class="col-4 bg-transparent">Email Address</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <tr>
+                <td class="col-4">Sharjeel</td>
+                <td class="col-4">Hassan</td>
+                <td class="col-4">sharjeelhassan@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="col-4">Junaid</td>
+                <td class="col-4">Kamal</td>
+                <td class="col-4">junaidkamal@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="col-4" colspan="2">Muhammad Yousaf</td>
+                <td class="col-4">muhammadyousaf@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="col-4">Babloo</td>
+                <td class="col-4">Dabloo</td>
+                <td class="col-4">babloodabloo@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="col-4">Babban</td>
+                <td class="col-4">Kumar</td>
+                <td class="col-4">babbankumar@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="col-4">Sigma</td>
+                <td class="col-4">Male</td>
+                <td class="col-4">sigmamale@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="col-4">Ramu</td>
+                <td class="col-4">Kaka</td>
+                <td class="col-4">ramukaka@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="col-4" colspan="2">Papa Ki Pari</td>
+                <td class="col-4">papakipari@gmail.com</td>
+            </tr>
+            <tr>
+                <td class="col-4">Saad</td>
+                <td class="col-4">Abid</td>
+                <td class="col-4">saadabid@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        const searchFunc = () => {
+            let filter = document.getElementById("myInput").value.toUpperCase();
+            let tr = document.getElementById('tableBody').getElementsByTagName('tr')
+            for (let i = 0; i < tr.length; i++) {
+                let tableName = tr[i].getElementsByTagName('td')[0].innerHTML.toUpperCase();
+
+                if (tableName.indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
